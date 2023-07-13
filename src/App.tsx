@@ -8,6 +8,7 @@ import { Container, Stack } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import MainNav from './layouts/MainNav';
 import useMUIThemes from './hooks/useMUIThemes';
+import { selectGain } from './features/settings/settingsSlice';
 
 export default function App() {
   const [theme, colorMode] = useMUIThemes();

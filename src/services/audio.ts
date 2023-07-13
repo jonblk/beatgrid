@@ -16,7 +16,7 @@ interface IAudioBuffers {
 }
 
 export const updateGain = (v: number) =>  {
-  gainNode.gain.value = Math.max(-1, Math.min(v,1))
+  gainNode.gain.value = Math.max(-1, Math.min(v*1.3,1))
 }
 
 const buffers: IAudioBuffers = tracks.reduce((

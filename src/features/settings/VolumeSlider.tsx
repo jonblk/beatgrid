@@ -6,14 +6,13 @@ const min = -100;
 const max = 100;
 
 import { useSelector } from 'react-redux';
-import { selectGain, updateGain } from './settingsSlice';
+import { selectGain, updateGain, toggleOffGain, toggleOnGain } from './settingsSlice';
 import { useDispatch } from 'react-redux';
 import { VolumeMuteOutlined, VolumeUpOutlined } from '@mui/icons-material';
 import ThinSlider from '../../components/ThinSlider';
 
 export default function VolumeSlider() {
   const gain = useSelector(selectGain)
-  const [prevGain, setPrevGain] = useState(gain)
   const dispatch = useDispatch()
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -22,10 +21,9 @@ export default function VolumeSlider() {
 
   const handleToggle = (event: any) => {
     if (gain === min) {
-      dispatch(updateGain(prevGain))
+      dispatch(toggleOnGain())
     } else {
-      setPrevGain(gain)
-      dispatch(updateGain(min))
+      dispatch(toggleOffGain())
     }
   }
 
